@@ -1,0 +1,13 @@
+
+免密登录  
+ssh-keygen -t rsa -b 2048 -N '' -f  ~/.ssh/id_rsa		
+或者 ssh-keygen -t ed25519 -N '' -f ~/.ssh/id_ed25519
+ssh-copy-id  $ip		按照提示yes +密码之后，登录$ip将不再使用密码登录
+循环生成  ssh-keygen -t rsa;for i in master99 harbor97 node101 node102;do ssh-copy-id -i ~/.ssh/id_rsa.pub $i;done	每一台服务器都需要执行
+
+
+192.168.87.99   master99
+192.168.87.97   harbor97
+192.168.87.101  node101
+192.168.87.102  node102
+192.168.87.87   devip87
